@@ -17,10 +17,7 @@ Then download the checkpoints [sam_vit_b_01ec64.pth](https://dl.fbaipublicfiles.
 
 ## Data Processing
 1. Prepare ROS bag
-Bag should include:
-RGB-D images
-TF
-End-effector pose
+Bag should include: RGB-D images, TF, End-effector pose
 
 2. Convert ROS bag to dataset
 ```bash
@@ -28,7 +25,7 @@ cd ~/scenerep
 python rosbag2dataset/rosbag2dataset_5hz.py [dataname.bag]
 ```
 
-4. Run OWL-ViT object scoring & SAM segmentation
+3. Run OWL-ViT object scoring & SAM segmentation
 ```bash
 python rosbag2dataset/owl/owl_object_score.py [dataname]
 python rosbag2dataset/sam/sam.py [dataname]
@@ -36,9 +33,8 @@ python rosbag2dataset/sam/sam.py [dataname]
 
 ## Demo
 
-Edit a config file under: config/[dataname.config]
-
-Run:
+1. Edit a config file under: config/[dataname.config]
+2. Run:
 ```bash
 python data_demo.py --config config/[dataname.config]
 ```
