@@ -5,6 +5,10 @@
 ```bash
 conda create -n scenerep python=3.11
 conda activate scenerep
+cd scenerep
+pip install -r requirements.txt
+# OR
+conda env create -f scenerep.yml
 ```
 
 2. Install requirements
@@ -14,8 +18,6 @@ git clone https://github.com/google-research/big_vision.git temp_big_vision && \
 mkdir -p rosbag2dataset/owl/big_vision && \
 mv temp_big_vision/big_vision/* rosbag2dataset/owl/big_vision/ && \
 rm -rf temp_big_vision
-
-pip install -r requirements.txt
 ```
 Then download the checkpoints [sam_vit_b_01ec64.pth](https://dl.fbaipublicfiles.com/segment_anything/sam_vit_b_01ec64.pth). Place it in:rosbag2dataset/sam/sam_vit_b_01ec64.pth
 
