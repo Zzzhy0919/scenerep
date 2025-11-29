@@ -168,7 +168,7 @@ def main():
     files.sort()
 
     ### OWL_VIT initialization
-    sys.path.append('/home/zhy/Scene_Representation/rosbag_to_dataset/owl/big_vision/')
+    sys.path.append('/home/zhy/scenerep/rosbag2dataset/owl/big_vision')
     config = configs.owl_v2_clip_b16.get_config(init_mode='canonical_checkpoint')
     module = models.TextZeroShotDetectionModule(
         body_configs=config.model.body,
