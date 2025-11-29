@@ -22,6 +22,7 @@ Bag should include: RGB-D images, TF, End-effector pose
 2. Convert ROS bag to dataset
 ```bash
 cd ~/scenerep
+python rosbag2dataset/icp_amcl.py
 python rosbag2dataset/rosbag2dataset_5hz.py [dataname.bag]
 ```
 
