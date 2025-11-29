@@ -1,0 +1,52 @@
+# Realtime TSDF Fusion App 简化配置文件
+# 适用于 version_realtime/realtime_app.py
+
+# ROS 话题和坐标系配置
+ros:
+  camera_frame: "head_camera_rgb_optical_frame"
+  world_frame: "map"
+  rgb_topic: "/head_camera/rgb/image_raw/compressed"
+  depth_topic: "/head_camera/depth_registered/image_raw"
+  ee_topic: "/end_effector_pose"
+
+# 相机内参配置
+camera:
+  fx: 554.3827
+  fy: 554.3827
+  cx: 320.5
+  cy: 240.5
+
+# 掩码处理配置
+mask:
+  method: "json"  # 当前get_detections返回空列表，但保留配置结构
+  clear_bottom_ratio: 0.1
+  shrink_mask: true
+  shrink_kernel_size: 5
+  dilate_kernel_size: 7
+
+# TSDF融合配置
+tsdf:
+  bg_voxel_size: 0.03
+  object_voxel_size: 0.01
+  max_distance_thresh: 0.03
+  pose_threshold:
+    max_rotation: 0.1
+    max_translation: 0.05
+  pose_refine:
+    enabled: false
+  inpaint:
+    enabled: false
+  mesh_filter:
+    enabled: false
+    trim_ratio: 0.02
+
+# 可视化配置
+visualization:
+  use_raymond_lighting: true
+  viewport_size: [1280, 720]
+  show_bounding_boxes: true
+  bbox_color: [0.0, 1.0, 0.0, 1.0]
+  bbox_edge_thickness: 0.002
+  bbox_style: "wireframe"
+  show_object_poses: true
+  pose_axis_length: 0.05
