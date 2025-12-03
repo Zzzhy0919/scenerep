@@ -7,11 +7,8 @@ conda activate scenerep
 cd scenerep
 pip install --upgrade "jax[cuda]" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
 pip install -r requirements.txt
-
-# OR
-conda env create -f scenerep.yml
 ```
-Download the checkpoints [OWLv2 CLIP B/16 ST/FT ens](https://storage.googleapis.com/scenic-bucket/owl_vit/checkpoints/owl2-b16-960-st-ngrams-curated-ft-lvisbase-ens-cold-weight-05_209b65b)) to ` ~/scenerep/rosbag2dataset/owl`.
+Download the checkpoints [OWLv2 CLIP B/16 ST/FT ens](https://storage.googleapis.com/scenic-bucket/owl_vit/checkpoints/owl2-b16-960-st-ngrams-curated-ft-lvisbase-ens-cold-weight-05_209b65b) to ` ~/scenerep/rosbag2dataset/owl`.
 Modify "checkpoint_path" in `~/anaconda3/envs/scenerep/lib/python3.11/site-packages/scenic/projects/owl_vit/configs/owl_v2_clip_b16.py`.
 
 Then download the checkpoints [sam_vit_b_01ec64.pth](https://dl.fbaipublicfiles.com/segment_anything/sam_vit_b_01ec64.pth) to `~/scenerep/rosbag2dataset/sam`.
