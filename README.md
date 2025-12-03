@@ -1,25 +1,19 @@
 # scenerep
 
 ## Installation
-1. Create environment
 ```bash
 conda create -n scenerep python=3.11
 conda activate scenerep
 cd scenerep
+pip install --upgrade "jax[cuda]" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
 pip install -r requirements.txt
+
 # OR
 conda env create -f scenerep.yml
 ```
-
-2. Install requirements
-```bash
-cd scenerep
-git clone https://github.com/google-research/big_vision.git temp_big_vision && \
-mkdir -p rosbag2dataset/owl/big_vision && \
-mv temp_big_vision/big_vision/* rosbag2dataset/owl/big_vision/ && \
-rm -rf temp_big_vision
-```
-Then download the checkpoints [sam_vit_b_01ec64.pth](https://dl.fbaipublicfiles.com/segment_anything/sam_vit_b_01ec64.pth). Place it in:rosbag2dataset/sam/sam_vit_b_01ec64.pth
+Download the checkpoints([OWLv2 CLIP B/16 ST/FT ens](https://storage.googleapis.com/scenic-bucket/owl_vit/checkpoints/owl2-b16-960-st-ngrams-curated-ft-lvisbase-ens-cold-weight-05_209b65b)) to ` ~/scenerep/rosbag2dataset/owl`.
+Modify "checkpoint_path" in `~/anaconda3/envs/scenerep/lib/python3.11/site-packages/scenic/projects/owl_vit/configs/owl_v2_clip_b16.py`.
+Then download the checkpoints [sam_vit_b_01ec64.pth](https://dl.fbaipublicfiles.com/segment_anything/sam_vit_b_01ec64.pth).to `~/scenerep/rosbag2dataset/sam/`.
 
 ## Data Processing
 1. Prepare ROS bag
